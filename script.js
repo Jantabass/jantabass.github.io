@@ -1,7 +1,7 @@
 // --- Header og footer ---
 document.getElementById("header").innerHTML = `
   <header>
-    <h1>iPhone-nettside</h1>
+    <a href ="startside.html"<h1>iPhone-nettside</h1></a>
     <button id="modeBtn">Dark / Light Mode</button>
   </header>
 `;
@@ -10,9 +10,9 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2025 iPhone</p>
     <ul>
-      <li><a href="#">Om oss</a></li>
-      <li><a href="#">Kontakt oss</a></li>
-      <li><a href="#">Jobb hos oss</a></li>
+      <li><a href="om_oss.html">Om oss</a></li>
+      <li><a href="kontakt_oss.html">Kontakt oss</a></li>
+      <li><a href="karriere.html">Jobb hos oss</a></li>
     </ul>
   </footer>
 `;
