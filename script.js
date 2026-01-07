@@ -8,7 +8,7 @@ document.getElementById("header").innerHTML = `
 
 document.getElementById("footer").innerHTML = `
   <footer>
-    <p>© 2025 iPhone</p>
+    <p>© 2026 Vår nettside wallah</p>
     <ul>
       <li><a href="om_oss.html">Om oss</a></li>
       <li><a href="kontakt_oss.html">Kontakt oss</a></li>

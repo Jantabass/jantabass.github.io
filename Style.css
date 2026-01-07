@@ -69,7 +69,7 @@ footer ul li a {
   max-width: 520px;
   line-height: 1.6;
   margin-bottom: 32px;
-  color: var(--header);
+  color: var(--text);
 }
 
 /* Button */
