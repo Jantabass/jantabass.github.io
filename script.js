@@ -13,6 +13,7 @@ document.getElementById("footer").innerHTML = `
       <li><a href="om_oss.html">Om oss</a></li>
       <li><a href="kontakt_oss.html">Kontakt oss</a></li>
       <li><a href="karriere.html">Jobb hos oss</a></li>
+      <li><a href="q&a.html">Spørsmål og svar</a></li>
     </ul>
   </footer>
 `;
@@ -230,3 +231,13 @@ document.addEventListener("click", (e) => {
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-mode");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".qa-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const answer = btn.nextElementSibling;
+      answer.style.display =
+        answer.style.display === "block" ? "none" : "block";
+    });
+  });
+});
