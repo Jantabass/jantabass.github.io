@@ -2,22 +2,12 @@
 document.getElementById("header").innerHTML = `
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
-    <a href ="startside.html"><h1>iPhone-nettside</h1></a>
     <button id="modeBtn">Dark / Light Mode</button>
   </header>
 `;
 
 document.getElementById("footer").innerHTML = `
   <footer>
-    <div class="footer-content">
-      <p>© 2026 Vår nettside wallah</p>
-      <nav class="footer-nav">
-        <a href="om_oss.html">Om oss</a>
-        <a href="kontakt_oss.html">Kontakt oss</a>
-        <a href="karriere.html">Jobb hos oss</a>
-        <a href="q&a.html">Spørsmål og svar</a>
-      </nav>
-    </div>
     <p>© 2026 Vår nettside</p>
     <ul>
       <li><a href="om_oss.html">Om oss</a></li>
