@@ -2,6 +2,7 @@
 document.getElementById("header").innerHTML = `
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
+    <a href ="startside.html"><h1>iPhone-nettside</h1></a>
     <button id="modeBtn">Dark / Light Mode</button>
   </header>
 `;
@@ -17,6 +18,13 @@ document.getElementById("footer").innerHTML = `
         <a href="q&a.html">Spørsmål og svar</a>
       </nav>
     </div>
+    <p>© 2026 Vår nettside</p>
+    <ul>
+      <li><a href="om_oss.html">Om oss</a></li>
+      <li><a href="kontakt_oss.html">Kontakt oss</a></li>
+      <li><a href="karriere.html">Jobb hos oss</a></li>
+      <li><a href="q&a.html">Spørsmål og svar</a></li>
+    </ul>
   </footer>
 `;
 
