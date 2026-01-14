@@ -347,25 +347,26 @@ function highlightMaxValues() {
     maxValues.maxCameraFPS = Math.max(maxValues.maxCameraFPS, p.maxCameraFPS);
   });
 
+  ["storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery"].forEach(prop => {
+    const owners = compareSlots.filter(key => phones[key] && phones[key][prop] === maxValues[prop]);
+    const isUniqueMax = owners.length === 1;
+
   // Marker høyeste verdier
   items.forEach(item => {
     const name = item.querySelector("h3").innerText;
     let key = Object.keys(phones).find(k => phones[k].name === name);
     if (!key) return;
-    const p = phones[key];
+    const elem = item.querySelector(`.highlight-${prop}`);
+    if (!elem) return;
 
     // Gå gjennom alle verdier vi vil markere
-    ["storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery"].forEach(prop => {
-      const elem = item.querySelector(`.highlight-${prop}`);
-      if (elem) {
-        if (p[prop] === maxValues[prop] && p[prop] !== 0) {
+     if (isUniqueMax && phones[key][prop] === maxValues[prop] && maxValues[prop] !== 0) {
           elem.style.backgroundColor = "lightgreen";
         } else {
           elem.style.backgroundColor = "transparent";
         }
-      }
+      });
     });
-  });
 }
 
 function addToCompare(key) {
