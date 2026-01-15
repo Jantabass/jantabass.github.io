@@ -50,13 +50,21 @@ header, footer {
   margin-bottom: 20px;
 }
 
-footer ul li a {
-  color: var(--text);
-  text-decoration: none;
+
+.default_image {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-
+.default_image:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
 
 #compareBox {
   margin-top: 30px;
@@ -143,16 +151,6 @@ footer ul li a {
   padding: 40px 20px;
 }
 
-#footer {
-  margin-top: auto;
-  margin-bottom: 0;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: var(--header);
-  align-self: center;
-  justify-self: center;
-}
 
 .hero {
   min-height: 100vh;
@@ -264,9 +262,6 @@ footer ul li a {
   color: var(--muted);
 }
 
-footer p {
-  color: var(--text);
-}
 
 #modeBtn {
   border-radius: 13px;
@@ -274,4 +269,56 @@ footer p {
 
   background: var(--accent);
 
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, var(--accent, #444), var(--accent-hover, #222));
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  background: linear-gradient(135deg, #111, #222);
+  padding: 30px 20px;
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer ul li a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+footer ul li a:hover {
+  color: #fff;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
