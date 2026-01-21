@@ -5,7 +5,7 @@ document.getElementById("header").innerHTML = `
     <button id="modeBtn">Dark / Light Mode</button>
   </header>
 `;
-
+ 
 document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 Vår nettside</p>
@@ -30,8 +30,8 @@ function playSound(sound) {
 }
 
 // Initial tomme plasser
-
-
+ 
+ 
 // --- iPhone-data ---
 function removeFromCompare(key) {
   const index = compareSlots.indexOf(key);
@@ -42,9 +42,9 @@ function removeFromCompare(key) {
   renderComparePanel();
   highlightMaxValues();
 }
-
-
-
+ 
+ 
+ 
 const phones = {
   iphone13: {
     name: "iPhone 13",
@@ -255,14 +255,14 @@ const phones = {
     maxCameraFPS: 60
   }
 };
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 // --- Sammenlikning ---
 // --- Sammenlikning med plass-til-sammenlikning ---
 // --- Sammenlikning med pluss-tegn nederst ---
@@ -271,16 +271,16 @@ const phones = {
 // --- Sammenlikning med dynamisk ledig slot ---
 let compareSlots = []; // valgte modeller
 const MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
-
+ 
 window.addEventListener("resize", () => {
   maxCompare = window.innerWidth <= 768 ? 2 : 3;
 });
-
+ 
 // Oppdater panel nederst
 function renderComparePanel() {
   const panel = document.getElementById("compareBox");
   let html = "<div style='display:flex; gap:10px; flex-wrap: wrap;'>";
-
+ 
   compareSlots.forEach((key, index) => {
     if (key === "empty") {
       html += `
@@ -305,15 +305,15 @@ function renderComparePanel() {
           <p>Maks kamera FPS: <span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span></p>
           <p>Batterikapasitet: <span  class="highlight-battery">${p.battery} mAh</span></p>
           <p>Chip: ${p.chip}</p>
-
+ 
         </div>
       `;
     }
   });
-
+ 
   html += "</div>";
   panel.innerHTML = html;
-
+ 
   // Legg til event listeners for alle fjern-knapper
   panel.querySelectorAll(".remove-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -322,15 +322,15 @@ function renderComparePanel() {
     });
   });
 }
-
+ 
 // Funksjon for å fremheve høyeste verdier i compareBox
 function highlightMaxValues() {
   if (compareSlots.length === 0) return;
-
+ 
   // Hent elementene i panelet
   const panel = document.getElementById("compareBox");
   const items = panel.querySelectorAll(".compare_phone");
-
+ 
   // Samle verdier for hver kategori
   let maxValues = {
     storage: 0,
@@ -342,7 +342,7 @@ function highlightMaxValues() {
     battery: 0,
     maxCameraFPS: 0
   };
-
+ 
   compareSlots.forEach(key => {
     const p = phones[key];
     if (!p) return;
@@ -355,11 +355,11 @@ function highlightMaxValues() {
     maxValues.battery = Math.max(maxValues.battery, p.battery);
     maxValues.maxCameraFPS = Math.max(maxValues.maxCameraFPS, p.maxCameraFPS);
   });
-
+ 
   ["storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery"].forEach(prop => {
     const owners = compareSlots.filter(key => phones[key] && phones[key][prop] === maxValues[prop]);
     const isUniqueMax = owners.length === 1;
-
+ 
   // Marker høyeste verdier
   items.forEach(item => {
     const name = item.querySelector("h3").innerText;
@@ -367,7 +367,7 @@ function highlightMaxValues() {
     if (!key) return;
     const elem = item.querySelector(`.highlight-${prop}`);
     if (!elem) return;
-
+ 
     // Gå gjennom alle verdier vi vil markere
      if (isUniqueMax && phones[key][prop] === maxValues[prop] && maxValues[prop] !== 0) {
           elem.style.backgroundColor = "lightgreen";
@@ -377,7 +377,7 @@ function highlightMaxValues() {
       });
     });
 }
-
+ 
 function addToCompare(key) {
   playSound(soundAdd);
 
@@ -387,33 +387,33 @@ function addToCompare(key) {
     compareSlots[emptyIndex] = key;
   } else if (compareSlots.length < MAX_COMPARE) {
     compareSlots.push(key);
-
+ 
   }
   renderComparePanel(
   )
   highlightMaxValues()
 }
-
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 // Initial render: tomt panel
 renderComparePanel();
 highlightMaxValues();
-
-
+ 
+ 
 // --- Dark / Light mode ---
 const body = document.body;
-
+ 
 document.addEventListener("click", (e) => {
   if (e.target.id === "modeBtn") {
     body.classList.toggle("dark-mode");
-
+ 
     if (body.classList.contains("dark-mode")) {
       localStorage.setItem("theme", "dark");
     } else {
@@ -421,12 +421,12 @@ document.addEventListener("click", (e) => {
     }
   }
 });
-
+ 
 // Last lagret modus
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-mode");
 }
-
+ 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".qa-question").forEach(btn => {
     btn.addEventListener("click", () => {
