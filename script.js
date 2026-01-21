@@ -301,7 +301,7 @@ function renderComparePanel() {
         <div class="compare_phone">
           <button class="remove-btn" data-key="${key}">Fjern</button>
           <h3>${p.name}</h3>
-          <p>Skjerm: ${p.screen}</p>
+          <p>Skjerm: <span class="highlight-screen">${p.screen}</span></p>
           <p>Kamera: ${p.camera}</p>
           <p>Lagringsplass(størst): <span class="highlight-storage">${p.storage} GB</span></p>
           <p>RAM: <span class="highlight-ram">${p.ram} GB</span></p>
@@ -342,6 +342,7 @@ function highlightMaxValues() {
  
   // Samle verdier for hver kategori
   let maxValues = {
+    screen : 0,
     storage: 0,
     ram: 0,
     weight: 0,
@@ -355,6 +356,7 @@ function highlightMaxValues() {
   compareSlots.forEach(key => {
     const p = phones[key];
     if (!p) return;
+    maxValues.screen = Math.max(maxValues.screen, p.screen);
     maxValues.storage = Math.max(maxValues.storage, p.storage);
     maxValues.ram = Math.max(maxValues.ram, p.ram);
     maxValues.weight = Math.max(maxValues.weight, p.weight);
@@ -365,7 +367,7 @@ function highlightMaxValues() {
     maxValues.maxCameraFPS = Math.max(maxValues.maxCameraFPS, p.maxCameraFPS);
   });
  
-  ["storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery"].forEach(prop => {
+  ["screen","storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery"].forEach(prop => {
     const owners = compareSlots.filter(key => phones[key] && phones[key][prop] === maxValues[prop]);
     const isUniqueMax = owners.length === 1;
  
