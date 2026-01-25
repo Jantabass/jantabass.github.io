@@ -517,3 +517,83 @@ footer p {
   font-size: 0.85rem;
   color: var(--footer_text_color);
 }
+
+.hero-bg-om-oss {
+  background-image: linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.45)
+    ),url("https://images.moneycontrol.com/static-mcnews/2024/05/20240517060743_daniel-romero-TpXoTb1uR5A-unsplash-2.jpg?impolicy=website&width=770&height=431");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  padding: 60px 20px;
+}
+
+.lister {
+  max-width: 700px;             /* begrenser bredden */
+  margin: 40px auto;            /* sentrerer div-en */
+  padding: 30px 40px;           /* god luft inni */
+  background: rgba(255, 255, 255, 0.1); /* glassaktig bakgrunn */
+  backdrop-filter: blur(10px);  /* blurry effekt bak */
+  border-radius: 20px;          /* avrundede hjørner */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* dybde */
+  color: var(--text);
+}
+
+  .lister ul,
+.lister ol {
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.lister ul li,
+.lister ol li {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 20px;
+}
+
+
+.lister ul li::before {
+  content: "•";                
+  position: absolute;
+  left: 0;
+  color: var(--accent);         
+  font-weight: bold;
+}
+
+.lister ol {
+  counter-reset: section;
+}
+
+.lister ol li {
+  list-style: none; /* fjerner standard nummer */
+}
+
+.lister ol li::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+  color: var(--accent);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Margin på p inni lister-diven */
+.lister p {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: 500;
+  color: var(--text);}
+
+
+
