@@ -547,7 +547,6 @@ footer p {
     ),url(https://www.shutterstock.com/image-photo/group-happy-workmates-play-football-600nw-2582651767.jpg);
   background-size: cover;
   background-position: center;
-  width: 100%;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
