@@ -22,7 +22,7 @@ body.dark-mode {
   --card: #1d3445;
   --header: #333;
   --muted: #aaa;
-  --footer_text_color: #000000;
+  --footer_text_color: #ffffff;
   --accent: #305261;
   --accent-hover: #203a43;
   --button-bg: #2c5364;
@@ -481,6 +481,7 @@ header {
   background: linear-gradient(135deg, var(--accent, #444), var(--accent-hover, #222));
   color: #fff;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 0%;
 }
  
 header h1 {
@@ -497,11 +498,10 @@ footer {
   background: var(--bg1);
   padding: 30px 20px;
   box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 0%;
 }
 
-footer p {
-  color: var();
-}
+
  
 footer ul {
   list-style: none;
@@ -512,8 +512,8 @@ footer ul {
   gap: 20px;
 }
 
-footer ul li a {
-  color: var(--accent-hover);
+footer ul li a, footer p {
+  color: var(--text);
   font-size: 0.9rem;
   transition: color 0.2s ease;
   text-decoration: none;
@@ -527,14 +527,13 @@ footer ul li a:hover {
 footer p {
   margin: 0;
   font-size: 0.85rem;
-  color: var(--footer_text_color);
 }
 
 .hero-bg-om-oss {
   background-image: linear-gradient(
       rgba(0,0,0,0.45),
       rgba(0,0,0,0.45)
-    ),url("https://images.moneycontrol.com/static-mcnews/2024/05/20240517060743_daniel-romero-TpXoTb1uR5A-unsplash-2.jpg?impolicy=website&width=770&height=431");
+    ),url(https://www.shutterstock.com/image-photo/group-happy-workmates-play-football-600nw-2582651767.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -607,5 +606,24 @@ footer p {
   font-weight: 500;
   color: var(--text);}
 
+.slideshow-omoss {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  flex-wrap: wrap;
+  
+}
 
+.slideshow-omoss .slide {
+  position: static;       /* overstyrer absolutt posisjon fra hoved-slideshow */
+  width: 400px;           /* ønsket fast bredde */
+  max-width: 90%;         /* skalerer fint på små skjermer */
+  height: 400;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background-color: var(--footer_text_color);
+}
 
