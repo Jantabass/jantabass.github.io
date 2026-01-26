@@ -20,6 +20,10 @@ document.getElementById("footer").innerHTML = `
   </footer>
 `;
 
+// Add to your HTML file (before closing body tag)
+  document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add('fade-in');
+  });
 
 
 const soundAdd = new Audio("sounds/add.wav");
