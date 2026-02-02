@@ -560,6 +560,14 @@ footer p {
 
 }
 
+.white-background {
+  background: linear-gradient(180deg, rgba(8, 35, 92, 0.295), rgba(17, 5, 150, 0.491));
+  padding: 10px;
+  border-radius: 16px;
+  width: 100vw;
+
+}
+
 
 
 
