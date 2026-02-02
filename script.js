@@ -88,7 +88,55 @@ const phones = {
     name: "iPhone 14",
     screen: 6.1,
     camera: "Dual 12 MP",
-    storage: 128,
+    storage: 512,
+    battery: 3240,
+    chip: "A15 Bionic",
+    weight: 174,
+    ram: 6,
+    cameraLenses: 2,
+    digitalZoom: 5,
+    opticZoom: 0,
+    refreshRateHz: 60,
+    maxCameraResolution: 4,
+    maxCameraFPS: 60
+  },
+  iphone14pro: {
+    name: "iPhone 14 Pro",
+    screen: 6.1,
+    camera: "Dual 12 MP",
+    storage: 1000,
+    battery: 3240,
+    chip: "A15 Bionic",
+    weight: 174,
+    ram: 6,
+    cameraLenses: 2,
+    digitalZoom: 5,
+    opticZoom: 0,
+    refreshRateHz: 60,
+    maxCameraResolution: 4,
+    maxCameraFPS: 60
+  },
+  iphone14promax: {
+    name: "iPhone 14 Pro Max",
+    screen: 6.7,
+    camera: "Dual 12 MP",
+    storage: 1000,
+    battery: 3240,
+    chip: "A15 Bionic",
+    weight: 174,
+    ram: 6,
+    cameraLenses: 2,
+    digitalZoom: 5,
+    opticZoom: 0,
+    refreshRateHz: 60,
+    maxCameraResolution: 4,
+    maxCameraFPS: 60
+  },
+  iphone14plus: {
+    name: "iPhone 14 Plus",
+    screen: 6.7,
+    camera: "Dual 12 MP",
+    storage: 1000,
     battery: 3240,
     chip: "A15 Bionic",
     weight: 174,
@@ -140,6 +188,25 @@ const phones = {
   },
 iphone15promax: {
   name: "iPhone 15 Pro Max",
+  screen: 6.7,
+  camera: "48 MP + 12 MP + 12 MP",
+  storage: 256,
+  battery: 4422,
+  chip: "A17 Pro",
+  weight: 221,
+  ram: 8,
+  cameraLenses: 3,
+  digitalZoom: 25,
+  opticZoom: 5,
+  refreshRateHz: 120,
+  maxCameraResolution: 4,
+  maxCameraFPS: 60,
+  videoHours: 29,
+  ppi: 460,
+  bluetoothVersion: 5.3
+},
+iphone15plus: {
+  name: "iPhone 15 Plus",
   screen: 6.7,
   camera: "48 MP + 12 MP + 12 MP",
   storage: 256,
@@ -336,7 +403,9 @@ document.querySelectorAll(".group-btn").forEach(btn => {
 // --- Sammenlikning med ledig slot og mørk skygge ---
 // --- Sammenlikning med dynamisk ledig slot ---
 // --- Sammenlikning med dynamisk ledig slot ---
-let compareSlots = []; // valgte modeller
+let compareSlots = ["empty"];
+
+
 let MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
  
 window.addEventListener("resize", () => {
@@ -356,12 +425,24 @@ window.addEventListener("resize", () => {
 
 
 function renderComparePanel() {
+
+  if (compareSlots.length === 0) {
+  compareSlots = ["empty"];
+}
   const panel = document.getElementById("compareBox");
   if (!panel) return;
 
   let html = ""; // start på nytt hver gang
 
   compareSlots.forEach((key) => {
+     if (key === "empty") {
+        html += `
+          <div class="compare_phone empty">
+            <h3>Tom plass</h3>
+          </div>
+        `;
+        return;
+     }
       const p = phones[key];
       html += `
         <div class="compare_phone">
@@ -467,6 +548,8 @@ function addToCompare(key) {
   if (!phones[key]) return;
   if (compareSlots.includes(key)) return;
   if (compareSlots.length >= MAX_COMPARE) return;
+
+  compareSlots = compareSlots.filter(k => k !== "empty");
 
   compareSlots.push(key);
   playSound(soundAdd);

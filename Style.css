@@ -1,31 +1,32 @@
 :root {
-  --bg1: #ffffff;
-  --bg2: #b8b8b8;
-  --bg3: #cacaca;
+  --bg2: #ff97bb;
+  --bg3: #ffffff;
+  --bg1: #ff2865;
+  --accent: #ff004c;
+  --accent-hover: #ffd2de;
   --text: #000;
   --card: #fff;
   --header: #ddd;
   --muted: #444;
-  --accent-hover: #ff97bb;
-  --accent: #ff2865;
   --button-bg: #ffffff;
-  --gradient-col: linear-gradient(180deg, var(--accent, var(--bg1)), var(--accent-hover, var(--bg2)), var(--button-bg, var(--bg3)));
+  --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+  --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
 }
  
  
 body.dark-mode {
-  --bg1: #1e1e1e;
-  --bg2: #4e4e4e;
-  --bg3: #8a8a8a;
+  --bg3: #213e70;
+  --bg2: #0b1027;
+  --bg1: #0c1c28;
+  --accent: #356a80;
+  --accent-hover: #14282e;
   --text: #f0f0f0;
-  --card: #1d3445;
+  --card: #0c283b;
   --header: #333;
   --muted: #aaa;
   --footer_text_color: #ffffff;
-  --accent: #305261;
-  --accent-hover: #203a43;
-  --button-bg: #2c5364;
-  --gradient-col: linear-gradient(180deg, var(--accent, var(--bg1)), var(--accent-hover, var(--bg2)), var(--button-bg, var(--bg3)));
+  --button-bg: #6bb8d9;
+  --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
 }
  
 
@@ -69,22 +70,25 @@ html, body {
   min-height: 100%;
 }
  
-header, footer {
-  text-align: center;
-  padding: 10px 0;
-  background-color: var(--bg1);
-  margin-bottom: 20px;
-}
+
  
  
+
 .default_image {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 16px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+  max-width: 40%;   /* velg ønsket bredde */
+  margin: 0 auto 20px;
+  display: block;
+  display: flex;
+  justify-content: center;
+  border-radius: 10%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.default_image img {
+  border-radius: 12px;
 }
  
 .default_image:hover {
@@ -98,13 +102,45 @@ header, footer {
 
 .phone-groups {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   width: 100%;
   justify-content: space-between;
 }
 
+
+
+.select-phone {
+  background: var(--card);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+}
+ 
+ 
+.select-phone img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  object-position: center 20%; /* cropper høyere opp */
+  transform: scale(0.9);       /* mindre zoom */
+}
+ 
+.select-phone span {
+  display: block;
+  margin-bottom: 40px;
+  font-weight: 600;
+
+}
+
+
 .group {
-  flex: 1;   /* 3 grupper ved siden av hverandre */
+  flex: 0 0 calc(33.333% - 20px);
 }
 @media (max-width: 600px) {
   .phone-groups {
@@ -129,7 +165,7 @@ header, footer {
   width: 100%;
   }
 
-  .compare_phone {
+  .compare_phone, .compare_phone.empty {
     flex: 0 0 48%;
     max-width: 48%;
   }
@@ -144,10 +180,9 @@ header, footer {
 .group-phones {
   display: none;      /* skjult som standard */
   margin-top: 10px;
-  gap: 20px;
+  
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: flex-start;  /* legger barna ved siden av hverandre */
+  gap: 10px;
 }
 
 .group-phones.show {
@@ -156,9 +191,11 @@ header, footer {
   justify-content: flex-start;
 }
 
-.group-phones .phone {
-  flex: 0 0 30%;      /* maks 3 per rad */
-  margin-bottom: 20px;
+.group-phones .select-phone {
+  margin-bottom: 2%;
+  box-sizing: border-box;
+  width: 50%;
+  flex: 0 0 calc(48%);
   box-sizing: border-box;
 }
 
@@ -170,7 +207,7 @@ header, footer {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background-color: var(--accent);
+  background-color: var(--bg2);
   color: #fff;
   text-align: left;
   margin-bottom: 10px;
@@ -203,7 +240,7 @@ header, footer {
 
 }
  
-.compare_phone {
+.compare_phone, .compare_phone.empty  {
   background: var(--card);
   border-radius: 12px;
   padding: 15px;
@@ -217,6 +254,7 @@ header, footer {
   cursor: pointer;
   box-sizing: border-box;
   margin-bottom: 20px;
+  min-height: 400px;
 }
  
 .compare_phone:hover {
@@ -255,7 +293,7 @@ header, footer {
 .compare_phone button.remove-btn:hover {
   background: #c0392b;
 }
- 
+
  
 
  
@@ -375,39 +413,76 @@ header, footer {
   width: 100%;
 }
  
-.phone {
-  background: var(--card);
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+header, footer {
   text-align: center;
-}
- 
- 
-.phone {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
- 
-.phone img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  object-position: center 20%; /* cropper høyere opp */
-  transform: scale(0.9);       /* mindre zoom */
-}
- 
-.phone span {
-  display: block;
-  margin-bottom: 40px;
-  font-weight: 600;
+  padding: 10px 0;
+  background-color: var(--f-h-gradient-col);
+  margin-bottom: 20px;
 }
 
 .footer a {
   color: var(--footer_text_color);
   text-decoration: none;
 }
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 0%;
+}
+ 
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+ 
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+ 
+footer {
+  background: var(--bg3);
+  padding: 30px 20px;
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 0%;
+}
+
+
+ 
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color:var()
+}
+
+footer ul li a, footer p {
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+ 
+footer ul li a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+ 
+footer p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
 
  
 /* Dark Mode */
@@ -427,6 +502,7 @@ header, footer {
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 8px;
+  color: var(--text)
 }
  
 .qa-answer {
@@ -438,9 +514,11 @@ header, footer {
  
 #modeBtn {
   border-radius: 13px;
-  padding: 5px;
-  background-color: var(--bg1);
+  padding: 10px;
+  background-color: var(--card);
   color: var(--muted);
+  border: none;
+  cursor: pointer;
 }
 
 
@@ -482,62 +560,6 @@ header, footer {
 
 
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: linear-gradient(135deg, var(--accent, #444), var(--accent-hover, #222));
-  color: #fff;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 0%;
-}
- 
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
- 
-header a {
-  text-decoration: none;
-  color: inherit;
-}
- 
-footer {
-  background: var(--bg1);
-  padding: 30px 20px;
-  box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 0%;
-}
-
-
- 
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 15px 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  color:var()
-}
-
-footer ul li a, footer p {
-  color: var(--text);
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-  text-decoration: none;
-}
- 
-footer ul li a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
- 
-footer p {
-  margin: 0;
-  font-size: 0.85rem;
-}
 
 .hero-bg-om-oss {
   background-image: linear-gradient(
