@@ -45,7 +45,7 @@ body {
   padding: 0;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: flex;
+  display: grid;
   flex-direction: column;
   background-attachment: fixed;
 }
@@ -158,8 +158,8 @@ html, body {
     text-align: center;
   }
   #compareBox {
-    justify-content: space-between;
-    display: flex;
+  justify-content: space-between;
+  display: flex;
   flex-wrap: wrap; /* viktig for å tillate flere rader */
   gap: 3%;
   width: 100%;
@@ -222,7 +222,7 @@ html, body {
 
 #compareBox {
   margin-top: 30px;
-    display: flex;
+  display: flex;
   flex-wrap: wrap;      /* neste rad hvis mer enn 3 */
   gap: 3%;              /* mellomrom mellom telefonene */
   justify-content: center;
@@ -560,6 +560,64 @@ footer p {
 
 
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, var(--accent, #444), var(--accent-hover, #222));
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 0%;
+}
+ 
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+ 
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+ 
+#footer {
+  background: var(--bg1);
+  padding: 10px 5px;
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 0%;
+  align-self: end;
+
+}
+
+
+ 
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: var(--footer_text_color);
+}
+
+footer ul li a, footer p {
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+ 
+footer ul li a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+ 
+footer p {
+  margin: 0;
+  font-size: 0.85rem;
+}
 
 .hero-bg-om-oss {
   background-image: linear-gradient(
@@ -664,6 +722,21 @@ footer p {
   margin: 32px auto;
   display: flex;
 }
+
+h4 {
+  text-align: center;
+  color: var(--bg1);
+  font-size: 20px;
+  color:var(--footer_text_color)
+}
+
+.iframe {
+  width: 10%;
+  max-height: 500px;
+}
+
+
+
 
 
 
