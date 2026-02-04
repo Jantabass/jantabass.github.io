@@ -17,7 +17,7 @@
  
 body.dark-mode {
   --bg3: #0a0b32;
-  --bg2: #0b1027;
+  --bg2: #182252;
   --bg1: #0b1231;
   --accent: #060c2c;
   --accent-hover: #100f3a;
@@ -387,7 +387,7 @@ html, body {
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
-    box-shadow: 0 8px 20px var(--bg3);
+    box-shadow: 0 0px 20px var(--bg3);
   }
   /* Button */
   .btn-primary {
@@ -401,7 +401,7 @@ html, body {
   .btn-primary:hover, #modeBtn:hover {
     background: var(--primary-btn-hover);
     transform: translateY(-1px);
-    box-shadow: 0 12px 28px var(--bg2);
+    box-shadow: 0 0px 28px var(--bg2);
     
   }
   
