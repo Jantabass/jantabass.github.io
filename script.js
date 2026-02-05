@@ -32,6 +32,10 @@ const soundRemove = new Audio("sounds/remove.wav");
 soundRemove.preload = "auto";
 const soundToggle = new Audio("sounds/mode.wav");
 soundToggle.preload = "auto";
+const soundGroupOpen = new Audio("sounds/group_open.wav");
+soundGroupOpen.preload = "auto";
+const soundGroupClose = new Audio("sounds/group_close.wav");
+soundGroupClose.preload = "auto";
 
 function playSound(sound) {
   sound.currentTime = 0;
@@ -387,7 +391,11 @@ iphone17promax: {
 document.querySelectorAll(".group-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const phonesDiv = btn.nextElementSibling;
-    phonesDiv.classList.toggle("show");  // toggle visning
+    if (phonesDiv.classList.contains("show")) {
+      playSound(soundGroupClose);}
+      else {  // toggle visning} 
+        playSound(soundGroupOpen);}
+    phonesDiv.classList.toggle("show")
   });
 });
 

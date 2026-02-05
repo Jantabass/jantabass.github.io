@@ -2,7 +2,7 @@
   --bg2: #e25b8a;
   --bg3: #ffffff;
   --bg1: #ff2865;
-  --accent: #ff004c;
+  --accent: #e73e71;
   --accent-hover: #ffd2de;
   --primary-btn-bg: var(--bg3);
   --primary-btn-hover: var(--bg2);
@@ -183,7 +183,7 @@ html, body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background-color: var(--bg2);
+  background-color: var(--accent);
   color: #fff;
   text-align: left;
   margin-bottom: 10px;
@@ -333,7 +333,7 @@ html, body {
   }
   
   .intro {
-    max-width: 700px;
+    max-width: 100%;
     margin: 80px auto;
     padding: 32px 40px;
     background: var(--card);
@@ -347,7 +347,7 @@ html, body {
   /* For Dark Mode kan du bruke en mørk variant: */
   /* background: rgba(12, 40, 59, 0.7); */
 
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Legger til en tynn "glass-kant" */
+
 }
   
   .intro p {
@@ -490,7 +490,7 @@ footer ul {
  
 /* Dark Mode */
 .qa {
-  max-width: 600px;
+  max-width: 40%;
   margin: 40px auto;
 }
  
@@ -512,6 +512,8 @@ footer ul {
   display: none;
   padding: 0 15px 15px;
   color: var(--muted);
+  text-align: left;
+  line-height: 1.9;
 }
  
  
