@@ -1,9 +1,10 @@
 :root {
-  --bg2: #e25b8a;
+  --bg2: #de7b9e;
   --bg3: #ffffff;
-  --bg1: #ff2865;
-  --accent: #e73e71;
+  --bg1: #ff477b;
+  --accent: #e77094;
   --accent-hover: #ffd2de;
+  --weak-shadow: #ffffff51;
   --primary-btn-bg: var(--bg3);
   --primary-btn-hover: var(--bg2);
   --text: #000;
@@ -21,6 +22,7 @@ body.dark-mode {
   --bg1: #0b1231;
   --accent: #060c2c;
   --accent-hover: #100f3a;
+  --weak-shadow: #160d5151;
   --primary-btn-bg: var(--card);
   --primary-btn-hover: #0c0b5b;
   --text: #f0f0f0;
@@ -187,6 +189,7 @@ html, body {
   color: #fff;
   text-align: left;
   margin-bottom: 10px;
+  box-shadow: 0 0 20px var(--weak-shadow) ;
 }
 
 .group-btn:hover {
@@ -726,6 +729,7 @@ h4 {
     font-size: 1.1em;
     padding: 16px;
     text-align: center;
+
   }
   #compareBox {
   justify-content: space-between;
