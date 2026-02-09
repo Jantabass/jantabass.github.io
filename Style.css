@@ -698,7 +698,33 @@ h4 {
   max-height: 500px;
 }
 
+table {
+    margin: 0 auto 40px;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    background-color: var(--bg3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background-color: linear-gradient(180deg, var(--bg1), var(--bg2));
+}
 
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--bg1);
+    color: var(--text);
+    font-weight: bold;
+}
+
+
+
+tr:hover {
+    background-color: var(--button-sam-bg);
+}
 
 
 @media (max-width: 600px) { 
