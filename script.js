@@ -5,6 +5,7 @@ document.getElementById("header").innerHTML = `
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
     <button id="modeBtn">Dark / Light Mode</button>
+    <button id="langBtn">Norsk / English</button>
   </header>
 `;
  
@@ -28,8 +29,41 @@ document.getElementById("footer").innerHTML = `
 
 const translations = {
   no: {
-    title: "b",
+    title: "Finn din perfekte iPhone",
+    subTitle : "Lei av endeløs scrolling og forvirrende spesifikasjoner?",
+    goToCompare: "Sammenlikn modeller",
+    introP1: "Vi tilbyr et smart og oversiktelig system som lar deg enkelt få info om de forskjellige modellene.",
+    introP2: "Dette er en uavhengig side, som ikke har blitt betalt av Apple. ",
+    introP3: "Vi vil derfor være helt nøytrale, og ikke forsøke å få deg til å bruke mest penger.",
+    whyUse: "Hvorfor bruke iPhoneGuide?",
+    objectiveComparison: "Objektiv sammenlikning",
+    objectiveComparisonP: " Spesifikasjoner, pris og ytelse satt opp side-om-side.",
+    adjustedToYou: "Tilpasset deg",
+    adjustedToYouP: "Finn modellen som passer ditt bruk , ikke Apples markedsplan.",
+    updatedRegularly: "Regelmessig oppdatert",
+    updatedRegularlyP: "Vi holder siden oppdatert med de nyeste modellene og spesifikasjonene.",
+
+
+
     compareTitle: "Sammenlikn iPhone-modeller",
+    compareSubtitle: "Klikk på en modell for å legge den til sammenligningspanelet nedenfor. Du kan sammenligne opptil 3 modeller.",
+    series: "serie",
+    comparequestion: "Hva betyr disse egenskapene?",
+    explain1: "Skjermstørrelse i tommer.",
+    explain2: "Kameraegenskaper, inkludert megapiksler og antall linser.",
+    explain3: "Antall kameralinser.",
+    explain4: "Maksimal lagringskapasitet i GB.",
+    explain5: "RAM i GB.",
+    explain6: "Vekt i gram.",
+    explain7: "Optisk zoom-funksjon i x.",
+    explain8: "Digital zoom-funksjon i x.",
+    explain9: "Maksimal kameraoppløsning i K.",
+    explain10: "Maksimal bildefrekvens for videoopptak.",
+    explain11: "Batterikapasitet i mAh.",
+    explain12: "Oppdateringsfrekvens for skjermen i Hz.",
+    explain13: "Bluetooth-versjon.",
+    explain14: "Oppdateringsfrekvens for skjermen i Hz.",
+
     question1: "Hvilken iPhone passer meg best?",
     answer1: "Det avhenger av budsjett, bruk og behov. Sammenlikn modellene for riktig valg.",
     question2: "Er nyeste iPhone alltid best?",
@@ -43,8 +77,41 @@ const translations = {
   },
 
   en: {
-    title: "y",
-    compareTitle: "Sammenlikn iPhone-modeller",
+    title: "Find your perfect iPhone",
+    subTitle : "Tired of endless scrolling and confusing specs? ",
+    goToCompare: "Compare models",
+    introP1: "We offer a smart and clear system that allows you to easily get info about the different models.",
+    introP2: "This is an independent site, which has not been paid by Apple. ",
+    introP3: "We will therefore be completely neutral, and not try to get you to spend the most money.",
+    whyUse: "Why use iPhoneGuide?",
+    objectiveComparison: "Objective comparison",
+    objectiveComparisonP: "Specifications, price and performance set up side-by-side.",
+    adjustedToYou: "Adjusted to you",
+    adjustedToYouP: "Find the model that suits your use, not Apple's marketing plan.",
+    updatedRegularly: "Updated regularly",
+    updatedRegularlyP: "We keep the site updated with the latest models and specifications.",
+
+
+
+    compareTitle: "Compare iPhone models",
+    compareSubtitle: "Click on a model to add it to the comparison panel below. You can compare up to 3 models.",
+    series: "series",
+    comparequestion: "What do these specs mean?",
+    explain1: "Screen size in inches.",
+    explain2: "Camera specs, including megapixels and lens count.",
+    explain3: "Number of camera lenses.",
+    explain4: "Maximum storage capacity in GB.",
+    explain5: "RAM in GB.",
+    explain6: "Weight in grams.",
+    explain7: "Optical zoom capability in x.",
+    explain8: "Digital zoom capability in x.",
+    explain9: "Maximum camera resolution in K.",
+    explain10: "Maximum frames per second for video recording.",
+    explain11: "Battery capacity in mAh.",
+    explain12: "Screen refresh rate in Hz.",
+    explain13: "Bluetooth version.",
+    explain14: "Screen refresh rate in Hz.",
+
       question1: "How much does an iPhone cost?",
       answer1: "This website does not provide pricing information. We only provide technical specifications for the various models.",
 
@@ -69,22 +136,28 @@ function toggleLanguage() {
 
 function updateAllText() {
   const lang = translations[currentLang];
-
+  
   Object.keys(lang).forEach(key => {
     const element = document.getElementById(key);
     if (element) {
       element.innerText = lang[key];
     }
   });
+  if (document.getElementById("qa-container")) {
+    addquestionsAndAnswers(lang);
+  }
+  
+  if (document.getElementById("qa-container-compare")) {
+    addquestionandAnswerscompare(lang);
+  }
 
-  // Oppdater Header/Footer (siden disse er dynamiske)
-  renderHeader();
-  renderFooter();
 
-  // Oppdater Q&A-løkken
-  renderQA();
+
 }
 
+
+
+function addquestionsAndAnswers(lang) {
 let qaHtml = "";
 
 for (let i = 1; i <= 4; i++) {
@@ -96,6 +169,21 @@ for (let i = 1; i <= 4; i++) {
   `;
 }
 document.getElementById("qa-container").innerHTML = qaHtml;
+}
+
+function addquestionandAnswerscompare(lang) {
+let qaHtml = "";
+  // i <= 14 fordi du har 14 forklaringer i objektet ditt
+  for (let i = 1; i <= 14; i++) {
+    if (lang["explain" + i]) {
+      qaHtml += `<li><strong>${lang["explain" + i]}</strong></li>`;
+    }
+  }
+  const container = document.getElementById("qa-container-compare");
+  if (container) {
+    container.innerHTML = qaHtml;
+  }
+}
 
 const soundAdd = new Audio("sounds/add.wav");
 soundAdd.preload = "auto";
@@ -682,6 +770,9 @@ document.addEventListener("click", (e) => {
       localStorage.setItem("theme", "light");
     }
   }
+if (e.target.id === "langBtn") {
+  toggleLanguage();
+}
 });
  
 // Last lagret modus
@@ -710,5 +801,9 @@ setInterval(() => {
   slides[currentSlide].classList.add("active");
 }, 5000);
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  updateAllText();
+});
 
 updateAllText();

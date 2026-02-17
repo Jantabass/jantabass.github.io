@@ -12,7 +12,7 @@
 <main class="less_big_hero">
 
 <h1 id="compareTitle"></h1>
-<p>Klikk på modellene du vil sammenlikne. Maks 3 om gangen.</p>
+<p id="compareSubtitle"></p>
 </main>
 
 <div class ="compare_section">
@@ -22,7 +22,7 @@
 
 
   <div class="group">
-    <button class="group-btn">iPhone 14-serie</button>
+    <button class="group-btn">iPhone 14-<p id="series"></p></button>
     <div class="group-phones">
       <div class="select-phone" onclick="addToCompare('iphone14')">iPhone 14</div>
       <div class="select-phone" onclick="addToCompare('iphone14pro')">iPhone 14 Pro</div>
@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="group">
-    <button class="group-btn">iPhone 15-serie</button>
+    <button class="group-btn">iPhone 15-<p id="series"></p></button>
     <div class="group-phones">
       <div class="select-phone" onclick="addToCompare('iphone15')">iPhone 15</div>
       <div class="select-phone" onclick="addToCompare('iphone15pro')">iPhone 15 Pro</div>
@@ -41,7 +41,7 @@
   </div>
 
   <div class="group">
-    <button class="group-btn">iPhone 16-serie</button>
+    <button class="group-btn">iPhone 16-<p id="series"></p></button>
     <div class="group-phones">
       <div class="select-phone" onclick="addToCompare('iphone16')">iPhone 16</div>
       <div class="select-phone" onclick="addToCompare('iphone16pro')">iPhone 16 Pro</div>
@@ -52,7 +52,7 @@
   </div>
   
   <div class="group">
-    <button class="group-btn">iPhone 17-serie</button>
+    <button class="group-btn">iPhone 17-<p id="series"></p></button>
     <div class="group-phones">
       <div class="select-phone" onclick="addToCompare('iphone17air')">iPhone Air</div>
       <div class="select-phone" onclick="addToCompare('iphone17')">iPhone 17</div>
@@ -73,22 +73,9 @@
   
 
       <div class="qa">
-  <button class="qa-question">Hva betyr disse egenskapene?</button>
+  <button class="qa-question" id="comparequestion"></button>
   <div class="intro qa-answer ">
-    <p><ul>
-    <li><strong>Skjerm:</strong> Størrelse på skjermen i tommer.</li>
-    <li><strong>Kamera:</strong> Hovedkameraets oppløsning i megapiksler (MP).</li>
-    <li><strong>Antall linser:</strong> Antall kameralinser på baksiden av telefonen.</li>
-    <li><strong>Lagringsplass:</strong> Maksimal lagringskapasitet i gigabyte (GB).</li>
-    <li><strong>RAM:</strong> Mengde arbeidsminne i gigabyte (GB).</li>
-    <li><strong>Vekt:</strong> Vekten på telefonen i gram (g).</li>
-    <li><strong>Digital zoom:</strong> Maksimal digital zoom-faktor.</li>
-    <li><strong>Optisk zoom:</strong> Maksimal optisk zoom-faktor.</li>
-    <li><strong>Kameraoppløsning:</strong> Maksimal oppløsning for videoopptak i megapiksler (MP).</li>
-    <li><strong>Kamera bildefrekvens:</strong> Maksimal bildefrekvens for videoopptak i bilder per sekund (FPS).</li>
-    <li><strong>Batteri:</strong> Batterikapasitet i milliamperetimer (mAh).</li>
-    <li><strong>Oppdateringsfrekvens skjerm:</strong> Maksimal oppdateringsfrekvens for skjermen i hertz (Hz).</li>
-  </ul></p>
+    <ul id="qa-container-compare"></ul>
   </div>
 </div>
 
