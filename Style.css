@@ -637,20 +637,19 @@ footer ul {
   position: relative;
   padding-left: 40px;
   font-weight: 600;
-  color: var(--bg1);
+  color: white;
   align-items: center;
   display: flex;
   min-height: 36px;
 }
 
 .liste1 li::before, .liste2 li::before {
-  content: "✓";
   position: absolute;
   left: 6px;
   top: 50%;
   transform: translateY(-50%);
   background: var(--accent);
-  color: #fff;
+  color: var(--footer_text_color);
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -685,6 +684,10 @@ footer ul {
       ),url(https://www.urmaker-bjerke.no/_next/image?url=https%3A%2F%2Fwww.urmaker-bjerke.no%2Fapp%2Fuploads%2F2024%2F07%2FLongines_Banner2.jpg&w=3840&q=75);
   background-position: 70% center;
   
+}
+
+li {
+  color: var(--footer_text_color);
 }
 
 
@@ -779,6 +782,72 @@ tr:hover {
   }
 }
 
+h2,h3{
+  text-align: center;
+  font-size: 30px;
+}
+
+
+.contact-form {
+    width: 70%;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: var(--card);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input & textarea */
+.contact-form input,
+.contact-form textarea {
+    width: 90%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--text);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Fokus-effekt */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-hover);
+}
+
+/* Tekstområde */
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Knapp */
+.contact-form button {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text);
+    background-color: var(--accent-hover);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    
+}
+
+
+/* Hover-effekt */
+.contact-form button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Aktiv (klikk) */
+.contact-form button:active {
+    transform: translateY(0);
+}
 
 
 
