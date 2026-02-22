@@ -9,38 +9,38 @@
 
   <div id="header"></div>
 
-  <h2>Kontakt oss</h2>
+  <h2 id="contactUs"></h2>
 
   <table>
     <tr>
-      <th>Avdeling</th>
-      <th>E-post</th>
-      <th>Telefon</th>
+      <th id="department"></th>
+      <th id="email"></th>
+      <th id="phone"></th>
     </tr>
     <tr>
-      <td>Kundeservice</td>
+      <td id="customerService"></td>
       <td>kundeservice@iphone.no</td>
       <td>123 45 678</td>
     </tr>
     <tr>
-      <td>Support</td>
+      <td id="support"></td>
       <td>support@iphone.no</td>
       <td>987 65 432</td>
     </tr>
   </table>
-  <h3>Send oss en melding</h3>
+  <h3 id="sendMsg"></h3>
 
 <form class="contact-form">
   <input type="text" name="name" placeholder="Navn" required>
   <input type="email" name="email" placeholder="E-post" required>
   <textarea name="message" rows="5" placeholder="Skriv meldingen din her…" required></textarea>
-  <button type="submit">Send melding</button>
+  <button id="sendMsg" type="submit"></button>
 </form>
 
   <div class="success-box" id="successBox">
     <div class="success-content">
-      <p>✅ Takk for din melding!</p>
-      <button onclick="closeBox()">Lukk</button>
+      <p id="successMsg"></p>
+      <button id="close "onclick="closeBox()"></button>
     </div>
   </div>
 

@@ -13,10 +13,9 @@
   --button-bg: #ffffff;
   --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
   --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
-  --kontakt_box_color:#6bc1ff;
 }
- 
- 
+
+
 body.dark-mode {
   --bg3: #0a0b32;
   --bg2: #182252;
@@ -31,8 +30,8 @@ body.dark-mode {
   --muted: #aaa;
   --footer_text_color: #ffffff;
   --button-bg: #6bb8d9;
-  --button-sam-bg: #303fa0;
   --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+  --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
 }
  
 
@@ -78,12 +77,43 @@ html, body {
   font-size: calc(0.6rem + 0.5vw);
 }
  
-.centralize {
-  align-items: center;
-  text-align: center;
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
 }
- 
- 
+
+.show {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: var(--card);
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.dropdown-content.show {
+  display: block;
+  z-index: 1000;
+  border-radius: 7%;
+  
+}
+
+.dropdown-content a:hover {
+  background: var(--accent-hover);
+}
+
 
 .default_image {
   max-width: 40%;   /* velg ønsket bredde */
@@ -368,7 +398,7 @@ html, body {
     color: var(--muted);
   }
   
-  .btn-primary, #modeBtn {
+  .btn-primary, #modeBtn, .dropbtn {
     background: var(--primary-btn-bg);
     border-radius: 999px;
     font-size: 1em;
@@ -386,7 +416,7 @@ html, body {
     
   }
   
-  .btn-primary:hover, #modeBtn:hover {
+  .btn-primary:hover, #modeBtn:hover, .dropbtn:hover {
     background: var(--primary-btn-hover);
     transform: translateY(-1px);
     box-shadow: 0 0px 28px var(--bg2);
@@ -529,9 +559,9 @@ footer ul {
 }
  
  
-#modeBtn {
+#modeBtn, .dropbtn {
   border-radius: 13px;
-  padding: 10px;
+  padding: 1%;
   background-color: var(--card);
   color: var(--muted);
   border: none;
@@ -735,7 +765,7 @@ th {
 
 
 tr:hover {
-    background-color: var(--button-sam-bg);
+    background-color: var(--accent);
 }
 
 
@@ -749,7 +779,7 @@ tr:hover {
     margin-right: 0%;
   }
   
-  #modeBtn {
+  #modeBtn  {
     padding: 1vw;
     font-size: 0.8em;
   }

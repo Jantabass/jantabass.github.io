@@ -1,11 +1,18 @@
 // --- Header og footer ---
+
 document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
-    <button id="modeBtn">Dark / Light Mode</button>
-    <button id="langBtn">Norsk / English</button>
+    <button id="modeBtn">B</button>
+    <div class="dropdown">
+  <button id="language" class="dropbtn" onclick="toggleMenu()"></button>
+  <div id="menu" class="dropdown-content">
+    <a href="#" onclick="setLanguage('en')">English</a>
+    <a href="#" onclick="setLanguage('no')">Norwegian</a>
+  </div>
+</div>
   </header>
 `;
  
@@ -13,10 +20,10 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 Vår nettside</p>
     <ul>
-      <li><a href="om_oss.html">Om oss</a></li>
-      <li><a href="kontakt_oss.html">Kontakt oss</a></li>
-      <li><a href="karriere.html">Jobb hos oss</a></li>
-      <li><a href="q&a.html">Spørsmål og svar</a></li>
+      <li><a id="aboutUs" href="om_oss.html">Om oss</a></li>
+      <li><a id="contactUs" href="kontakt_oss.html">Kontakt oss</a></li>
+      <li><a id="career" href="karriere.html">Jobb hos oss</a></li>
+      <li><a id="faq" href="q&a.html">Spørsmål og svar</a></li>
     </ul>
   </footer>
 `;
@@ -29,6 +36,12 @@ document.getElementById("footer").innerHTML = `
 
 const translations = {
   no: {
+    language: "Språk",
+    aboutUs: "Om oss",
+    contactUs: "Kontakt oss",
+    career: "Jobb hos oss",
+
+    faq: "Spørsmål og svar",
     title: "Finn din perfekte iPhone",
     subTitle : "Lei av endeløs scrolling og forvirrende spesifikasjoner?",
     goToCompare: "Sammenlikn modeller",
@@ -73,10 +86,36 @@ const translations = {
     answer3: "Nei, det er ikke mulig.",
 
     question4: "Er all informasjon om de forskjellige modellene sanne?",
-    answer4: "Ja, informasjonen er basert på offisielle spesifikasjoner fra Apple, tatt i betraktning at man kan oppleve små variasjoner i praksis. Det er heller ingen garanti for at det Apple oppgir stemmer 100% med virkeligheten."
+    answer4: "Ja, informasjonen er basert på offisielle spesifikasjoner fra Apple, tatt i betraktning at man kan oppleve små variasjoner i praksis. Det er heller ingen garanti for at det Apple oppgir stemmer 100% med virkeligheten.",
+
+    department: "Avdeling",
+    email: "E-post",
+    phone: "Telefon",
+    sendMsg: "Send melding",
+    successMsg: "✅ Takk for din melding!",
+    close: "Lukk",
+
+
+    carrerquestion: "Vil du jobbe hos oss?",
+    openPositions: "Ledige stillinger",
+    position: "Stilling",
+    workload: "Omfang",
+    type: "Type",
+    backenddev: "Backend develevoper",
+    cssdev: "Css utvikler",
+    economics: "Økonomi ansvarlig",
+    permanent: "Fast",
+    temporary: "Deltid",
+
   },
 
   en: {
+    language: "Language",
+    aboutUs: "About us",
+    contactUs: "Contact us",
+    career: "Career",
+    faq: "Questions & answers",
+
     title: "Find your perfect iPhone",
     subTitle : "Tired of endless scrolling and confusing specs? ",
     goToCompare: "Compare models",
@@ -122,17 +161,32 @@ const translations = {
       answer3: "No, that is not possible.",
 
       question4: "Is all the information about the different models true?",
-      answer4: "Yes, the information is based on official specifications from Apple, although small variations may occur in practice. There is no guarantee that everything Apple states is 100% accurate."
+      answer4: "Yes, the information is based on official specifications from Apple, although small variations may occur in practice. There is no guarantee that everything Apple states is 100% accurate.",
+
+    department: "Department",
+    email: "Email",
+    phone: "Phone",
+    sendMsg: "Send message",
+    successMsg: "✅ Thank you for your message!",
+    close: "Close",
+
+
+
+    carrerquestion: "Do you want to work with us?",
+    openPositions: "Open positions",
+    position: "Position",
+    workload: "Workload",
+    type: "Type",
+    backenddev: "Backend developer",
+    cssdev: "CSS developer",
+    economics: "Economics responsible",
+    permanent: "Permanent",
+    temporary: "Temporary",
 }
 }
 let currentLang = "en"; // Bytt mellom "no" og "en"
 
 
-function toggleLanguage() {
-  currentLang = (currentLang === "no") ? "en" : "no";
-  localStorage.setItem("preferredLang", currentLang); // Lagrer valget til neste besøk
-  updateAllText(); // Oppdaterer alt på siden umiddelbart
-}
 
 function updateAllText() {
   const lang = translations[currentLang];
@@ -150,40 +204,43 @@ function updateAllText() {
   if (document.getElementById("qa-container-compare")) {
     addquestionandAnswerscompare(lang);
   }
+  
+  
+  
+}
 
-
-
+function toggleLanguage() {
+  currentLang = (currentLang === "no") ? "en" : "no";
+  localStorage.setItem("preferredLang", currentLang); // Lagrer valget til neste besøk
+  updateAllText(); // Oppdaterer alt på siden umiddelbart
 }
 
 
+// ...existing code...
 
-function addquestionsAndAnswers(lang) {
-let qaHtml = "";
-
-for (let i = 1; i <= 4; i++) {
-  qaHtml += `
-  <button class="qa-question">${lang['question'+i]}</button>
-  <div class="qa-answer">
-    <p>${lang['answer'+i]}</p>
-  </div>
-  `;
-}
-document.getElementById("qa-container").innerHTML = qaHtml;
-}
-
-function addquestionandAnswerscompare(lang) {
-let qaHtml = "";
-  // i <= 14 fordi du har 14 forklaringer i objektet ditt
-  for (let i = 1; i <= 14; i++) {
-    if (lang["explain" + i]) {
-      qaHtml += `<li><strong>${lang["explain" + i]}</strong></li>`;
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+  // Lukk menyen hvis du klikker utenfor
+  document.addEventListener("click", function handler(e) {
+    if (!menu.contains(e.target) && !e.target.classList.contains("dropbtn")) {
+      menu.classList.remove("show");
+      document.removeEventListener("click", handler);
     }
-  }
-  const container = document.getElementById("qa-container-compare");
-  if (container) {
-    container.innerHTML = qaHtml;
+  });
+}
+
+// ...existing code...
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("preferredLang", currentLang);
+  updateAllText();
+  const menu = document.getElementById("menu");
+  if (menu.classList.contains("show")) {
+    menu.classList.remove("show");
   }
 }
+
 
 const soundAdd = new Audio("sounds/add.wav");
 soundAdd.preload = "auto";
@@ -779,17 +836,6 @@ if (e.target.id === "langBtn") {
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-mode");
 }
- 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".qa-question").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const answer = btn.nextElementSibling;
-      answer.style.display =
-        answer.style.display === "block" ? "none" : "block";
-    });
-  });
-});
-
 
 
 let currentSlide = 0;
@@ -805,6 +851,13 @@ setInterval(() => {
 
 document.addEventListener("DOMContentLoaded", function() {
   updateAllText();
+  const qaBtn = document.getElementById("comparequestion");
+  const qaAnswer = document.querySelector(".qa-answer");
+  if (qaBtn && qaAnswer) {
+    qaBtn.addEventListener("click", function() {
+      qaAnswer.classList.toggle("show");
+    });
+  }
 });
 
 updateAllText();
@@ -834,3 +887,4 @@ document.addEventListener('DOMContentLoaded', () => {
     form.reset();
   });
 });
+
