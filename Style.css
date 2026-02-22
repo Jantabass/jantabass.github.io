@@ -912,7 +912,6 @@ body.dark-mode .contact-form textarea:focus {
 .success-box.show {
     opacity: 1;
     visibility: visible;
-    display: flex;
     animation: success-fade 180ms ease-out;
 }
 
