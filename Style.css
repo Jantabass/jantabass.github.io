@@ -78,7 +78,6 @@ html, body {
 }
  
 .dropdown {
-  position: relative;
   display: inline-block;
   
 }
@@ -93,6 +92,8 @@ html, body {
   background: var(--card);
   min-width: 160px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  right: 0;
+  left: auto;
   
 }
 
@@ -396,6 +397,10 @@ html, body {
     font-size: 1.05em;
     line-height: 1.7;
     color: var(--muted);
+
+  }
+  #modebtn {
+    margin-right: 20vw;
   }
   
   .btn-primary, #modeBtn, .dropbtn {
@@ -574,6 +579,7 @@ footer ul {
   color: var(--muted);
   border: none;
   cursor: pointer;
+  margin-left: auto;
 }
 
 
