@@ -940,6 +940,7 @@ body.dark-mode .contact-form textarea:focus {
     align-self: center;
 
     /* Gradient knapp */
+
     background: linear-gradient(135deg, var(--accent-hover), var(--kontakt_box_color));
     border: none;
     border-radius: 10px;
@@ -955,10 +956,10 @@ body.dark-mode .contact-form textarea:focus {
   }
 
 /* Hover-effekt */
-  .contact-form button:hover {
+  /* .contact-form button:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-}
+} */
 
 /* Aktiv (klikk) */
 .contact-form button:active {
