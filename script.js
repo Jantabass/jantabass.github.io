@@ -7,7 +7,7 @@ document.getElementById("header").innerHTML = `
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
     <img src="images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
-  <button id="language" class="dropbtn" onclick="toggleMenu()"></button>
+  <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
     <a href="#" onclick="setLanguage('en')">English</a>
     <a href="#" onclick="setLanguage('no')">Norwegian</a>
@@ -20,10 +20,10 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 Vår nettside</p>
     <ul>
-      <li><a id="aboutUs" href="om_oss.html">Om oss</a></li>
-      <li><a id="contactUs" href="kontakt_oss.html">Kontakt oss</a></li>
-      <li><a id="career" href="karriere.html">Jobb hos oss</a></li>
-      <li><a id="faq" href="q&a.html">Spørsmål og svar</a></li>
+      <li><a class="translate-aboutUs" href="om_oss.html">Om oss</a></li>
+      <li><a class="translate-contactUs" href="kontakt_oss.html">Kontakt oss</a></li>
+      <li><a class="translate-career" href="karriere.html">Jobb hos oss</a></li>
+      <li><a class="translate-faq" href="q&a.html"></a></li>
     </ul>
   </footer>
 `;
@@ -55,6 +55,25 @@ const translations = {
     adjustedToYouP: "Finn modellen som passer ditt bruk , ikke Apples markedsplan.",
     updatedRegularly: "Regelmessig oppdatert",
     updatedRegularlyP: "Vi holder siden oppdatert med de nyeste modellene og spesifikasjonene.",
+
+    empty: "Tom plass",
+
+    screen: "Skjermstørrelse:",
+    camera: "Kamera:",
+    cameraLenses: "Kameralinser:",
+    storage: "Lagring:",
+    ram: "RAM:",
+    weight: "Vekt:",
+    opticZoom: "Optisk zoom:",
+    digitalZoom: "Digital zoom:",
+    maxCameraResolution: "Maksimal kameraoppløsning:",
+    refreshRateHz: "Skjermoppdateringsfrekvens:",
+    bluetoothVersion: "Bluetooth-versjon:",
+    chip: "Chip:",
+    battery: "Batterikapasitet:",
+    maxCameraFPS: "Maks kamera FPS:",
+
+
 
 
 
@@ -94,6 +113,8 @@ const translations = {
     sendMsg: "Send melding",
     successMsg: " Takk for din melding!",
     close: "Lukk",
+    customerService: "Kundeservice",
+    support: "Support",
 
 
     carrerquestion: "Vil du jobbe hos oss?",
@@ -129,6 +150,25 @@ const translations = {
     adjustedToYouP: "Find the model that suits your use, not Apple's marketing plan.",
     updatedRegularly: "Updated regularly",
     updatedRegularlyP: "We keep the site updated with the latest models and specifications.",
+
+    empty: "Empty slot",
+
+    screen: "Screen size:",
+    camera: "Camera:",
+    cameraLenses: "Camera lenses:",
+    storage: "Storage:",
+    ram: "RAM:",
+    weight: "Weight:",
+    opticZoom: "Optical zoom:",
+    digitalZoom: "Digital zoom:",
+    maxCameraResolution: "Max camera resolution:",
+    refreshRateHz: "Screen refresh rate:",
+    bluetoothVersion: "Bluetooth version:",
+    chip: "Chip:",
+    battery: "Battery capacity:",
+    maxCameraFPS: "Max camera FPS:",
+
+
 
 
 
@@ -169,6 +209,8 @@ const translations = {
     sendMsg: "Send message",
     successMsg: " Thank you for your message!",
     close: "Close",
+    customerService: "Customer Service",
+    support: "Support",
 
 
 
@@ -184,7 +226,7 @@ const translations = {
     temporary: "Temporary",
 }
 }
-let currentLang = "en"; // Bytt mellom "no" og "en"
+let currentLang = localStorage.getItem("preferredLang") || "en"; // Hent språk fra localStorage eller bruk engelsk som standard
 
 
 
@@ -192,10 +234,10 @@ function updateAllText() {
   const lang = translations[currentLang];
   
   Object.keys(lang).forEach(key => {
-    const element = document.getElementById(key);
-    if (element) {
+    const elements = document.querySelectorAll(`.translate-${key}`);
+    elements.forEach(element => {
       element.innerText = lang[key];
-    }
+    });
   });  
 }
 
@@ -203,6 +245,8 @@ function toggleLanguage() {
   currentLang = (currentLang === "no") ? "en" : "no";
   localStorage.setItem("preferredLang", currentLang); // Lagrer valget til neste besøk
   updateAllText(); // Oppdaterer alt på siden umiddelbart
+  renderComparePanel(currentLang); // Oppdater compare-panelet med nytt språk
+  highlightMaxValues();
 }
 
 
@@ -225,6 +269,8 @@ function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("preferredLang", currentLang);
   updateAllText();
+  renderComparePanel(currentLang); // Oppdater compare-panelet med nytt språk
+  highlightMaxValues();
   const menu = document.getElementById("menu");
   if (menu.classList.contains("show")) {
     menu.classList.remove("show");
@@ -264,7 +310,7 @@ function removeFromCompare(key) {
 const phones = {
 
   emptyphone: {
-    name: "Tom plass",
+    name: null,
     screen: null,
     camera: null,
     storage: null,
@@ -627,12 +673,6 @@ document.querySelectorAll(".group-btn").forEach(btn => {
 
  
  
-// --- Sammenlikning ---
-// --- Sammenlikning med plass-til-sammenlikning ---
-// --- Sammenlikning med pluss-tegn nederst ---
-// --- Sammenlikning med ledig slot og mørk skygge ---
-// --- Sammenlikning med dynamisk ledig slot ---
-// --- Sammenlikning med dynamisk ledig slot ---
 let compareSlots = ["emptyphone"];
 
 
@@ -651,33 +691,34 @@ window.addEventListener("resize", () => {
 // Oppdater panel nederst
 
 
-function showPhoneSpecs(key) {
+function showPhoneSpecs(key, currentLang) {
   const p = phones[key];
+  const lang = translations[currentLang];
   if (!p) return "";
     return `
         <div class="compare_phone">
-         ${key !== "emptyphone" ? `<button class="remove-btn" data-key="${key}">Fjern</button>` : ""}
+         ${key !== "emptyphone" ? `<button class="remove-btn" id="remove" data-key="${key}">Fjern</button>` : ""}
           <h3>${p.name}</h3>
-          <p>Skjerm: ${key !== "emptyphone" ? `<span class="highlight-screen">${p.screen}</span>` : ""} </p>
-          <p>Kamera: ${key !== "emptyphone" ? `${p.camera}` : ""}</p>
-          <p>Antall linser: ${key !== "emptyphone" ? `<span class="highlight-cameraLenses">${p.cameraLenses}</span>` : ""}</p>
-          <p>Lagringsplass(størst): ${key !== "emptyphone" ? `<span class="highlight-storage">${p.storage} GB</span>` : ""}</p>
-          <p>RAM: ${key !== "emptyphone" ? `<span class="highlight-ram">${p.ram} GB</span>` : ""}</p>
-          <p>Vekt: ${key !== "emptyphone" ? `<span class="highlight-weight">${p.weight} g</span>` : ""}</p>
-          <p>Optisk zoom: ${key !== "emptyphone" ? `<span class="highlight-opticZoom">${p.opticZoom}x</span>` : ""}</p>
-          <p>Digital zoom: ${key !== "emptyphone" ? `<span class="highlight-digitalZoom">${p.digitalZoom}x</span>` : ""}</p>
-          <p>Max Kameraoppløsning: ${key !== "emptyphone" ? `<span class="highlight-maxCameraResolution">${p.maxCameraResolution}K</span>` : ""}</p>
-          <p>Maks kamera FPS: ${key !== "emptyphone" ? `<span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span>` : ""}</p>
-          <p>Batterikapasitet: ${key !== "emptyphone" ? `<span  class="highlight-battery">${p.battery} mAh</span>` : ""}</p>
-          <p>Skjermoppdateringsfrekvens: ${key !== "emptyphone" ? `<span class="highlight-refreshRateHz">${p.refreshRateHz} Hz</span>` : ""}</p>
-          <p>Bluetooth-versjon: ${key !== "emptyphone" ? `<span class="highlight-bluetoothVersion">${p.bluetoothVersion}</span>` : ""}</p>
-          <p>Chip: ${key !== "emptyphone" ? `${p.chip}` : ""}</p>
+          <p>${lang.screen} ${key !== "emptyphone" ? `<span class="highlight-screen">${p.screen}"</span>` : ""} </p>
+          <p>${lang.camera} ${key !== "emptyphone" ? `${p.camera}` : ""}</p>
+          <p>${lang.cameraLenses} ${key !== "emptyphone" ? `<span class="highlight-cameraLenses">${p.cameraLenses}</span>` : ""}</p>
+          <p>${lang.storage} ${key !== "emptyphone" ? `<span class="highlight-storage">${p.storage} GB</span>` : ""}</p>
+          <p>${lang.ram} ${key !== "emptyphone" ? `<span class="highlight-ram">${p.ram} GB</span>` : ""}</p>
+          <p>${lang.weight} ${key !== "emptyphone" ? `<span class="highlight-weight">${p.weight} g</span>` : ""}</p>
+          <p>${lang.opticZoom} ${key !== "emptyphone" ? `<span class="highlight-opticZoom">${p.opticZoom}x</span>` : ""}</p>
+          <p>${lang.digitalZoom} ${key !== "emptyphone" ? `<span class="highlight-digitalZoom">${p.digitalZoom}x</span>` : ""}</p>
+          <p>${lang.maxCameraResolution} ${key !== "emptyphone" ? `<span class="highlight-maxCameraResolution">${p.maxCameraResolution}K</span>` : ""}</p>
+          <p>${lang.maxCameraFPS} ${key !== "emptyphone" ? `<span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span>` : ""}</p>
+          <p>${lang.battery} ${key !== "emptyphone" ? `<span  class="highlight-battery">${p.battery} mAh</span>` : ""}</p>
+          <p>${lang.refreshRateHz} ${key !== "emptyphone" ? `<span class="highlight-refreshRateHz">${p.refreshRateHz} Hz</span>` : ""}</p>
+          <p>${lang.bluetoothVersion} ${key !== "emptyphone" ? `<span class="highlight-bluetoothVersion">${p.bluetoothVersion}</span>` : ""}</p>
+          <p>${lang.chip} ${key !== "emptyphone" ? `${p.chip}` : ""}</p>
         </div>
       `;
 }
 
 
-function renderComparePanel() {
+function renderComparePanel(currentLang) {
   
   const panel = document.getElementById("compareBox");
   if (!panel) return;
@@ -694,7 +735,7 @@ function renderComparePanel() {
   
   compareSlots.forEach((key) => {
     const p = phones[key];
-    html += showPhoneSpecs(key);
+    html += showPhoneSpecs(key, currentLang);
   });
   
   panel.innerHTML = html;
@@ -786,7 +827,7 @@ function addToCompare(key) {
 
   compareSlots.push(key);
   playSound(soundAdd);
-  renderComparePanel();
+  renderComparePanel(currentLang);
   highlightMaxValues();
 }
  
@@ -799,7 +840,7 @@ function addToCompare(key) {
  
  
 // Initial render: tomt panel
-renderComparePanel();
+renderComparePanel(currentLang);
 highlightMaxValues();
  
  
@@ -849,9 +890,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.querySelectorAll(".qa-question").forEach(button => {
   button.addEventListener("click", function () {
-    const answerId = this.id.replace("question", "answer");
-    const answer = document.getElementById(answerId);
-    answer.classList.toggle("show");
+    const answer = this.parentElement.querySelector(".qa-answer");
+    if (answer) {
+      answer.classList.toggle("show");
+    }
   });
 });
 
