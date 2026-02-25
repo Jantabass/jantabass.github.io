@@ -890,8 +890,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.querySelectorAll(".qa-question").forEach(button => {
   button.addEventListener("click", function () {
-    const answer = this.parentElement.querySelector(".qa-answer");
-    if (answer) {
+    const answer = this.nextElementSibling;
+    if (answer && answer.classList.contains("qa-answer")) {
       answer.classList.toggle("show");
     }
   });
