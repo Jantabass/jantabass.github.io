@@ -912,7 +912,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const successBox = document.getElementById('successBox');
 
   if (!form || !successBox) {
-    console.error("Form eller successBox ikke funnet");
+    console.error("error: form or successBox not found");
     return;
   }
 
