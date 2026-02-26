@@ -806,8 +806,6 @@ th {
 tr:hover {
     background-color: var(--accent);
 }
-
-
 @media (max-width: 600px) { 
   header {
     margin-left: 0%;
