@@ -5,7 +5,7 @@ document.getElementById("header").innerHTML = `
 
   <header>
     <a href ="startside.html"><h1>ClearPhone</h1></a>
-    <img src="images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
+    <img src="../images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
@@ -278,15 +278,15 @@ function setLanguage(lang) {
 }
 
 
-const soundAdd = new Audio("sounds/add.wav");
+const soundAdd = new Audio("../sounds/add.wav");
 soundAdd.preload = "auto";
-const soundRemove = new Audio("sounds/remove.wav");
+const soundRemove = new Audio("../sounds/remove.wav");
 soundRemove.preload = "auto";
-const soundToggle = new Audio("sounds/mode.wav");
+const soundToggle = new Audio("../sounds/mode.wav");
 soundToggle.preload = "auto";
-const soundGroupOpen = new Audio("sounds/group_open.wav");
+const soundGroupOpen = new Audio("../sounds/group_open.wav");
 soundGroupOpen.preload = "auto";
-const soundGroupClose = new Audio("sounds/group_close.wav");
+const soundGroupClose = new Audio("../sounds/group_close.wav");
 soundGroupClose.preload = "auto";
 
 function playSound(sound) {

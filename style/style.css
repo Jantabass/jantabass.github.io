@@ -193,10 +193,10 @@ html, body {
 
 .group-phones {
   display: none;      /* skjult som standard */
-  margin-top: 10px;
+  margin-top: 5%;
   
   width: 100%;
-  gap: 10px;
+  gap: 5%;
 }
 
 .group-phones.show {
@@ -236,12 +236,12 @@ html, body {
 
 
 #compareBox {
-  margin-top: 30px;
+  margin-top: 3%;
   display: flex;
   flex-wrap: wrap;      /* neste rad hvis mer enn 3 */
   gap: 3%;              /* mellomrom mellom telefonene */
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 10%;
   
 }
 .compare_section {
@@ -285,7 +285,7 @@ html, body {
  
 .compare_phone h3 {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5%px;
   font-size: 1.2em;
   color: var(--text);
 }
@@ -520,7 +520,6 @@ footer {
   padding: 30px 20px;
   box-shadow: 0 -6px 2px var(--bg3);
   margin-bottom: 0%;
-  margin-top: 20vh;
 }
 
 
