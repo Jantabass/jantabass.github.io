@@ -128,6 +128,20 @@ const translations = {
     permanent: "Fast",
     temporary: "Deltid",
 
+    best_employees: "Våre beste arbeidere, som har vært med oss siden starten",
+
+    facts_about_us: "Noen fakta om oss:",
+    founded_year: "Grunnlagt i 2025",
+    employees: "2 ansatte",
+    plans: "Planer om videre utvikling",
+    future_plans: "Våre fremtidsplaner:",
+    y2025: "2025: Første butikk åpnet",
+    y2026: "2026: Nettbutikk lansert",
+    y2027: "2027: Ny hovedbutikk i Oslo",
+    ourVideo: "Vår butikkvideo:",
+    we_have_future_plans: "Vi har planer for videre utvikling"
+
+
   },
 
   en: {
@@ -224,6 +238,20 @@ const translations = {
     economics: "Economics responsible",
     permanent: "Permanent",
     temporary: "Temporary",
+
+
+    best_employees: "Our best employees, who have been with us since the start",
+    facts_about_us: "Some facts about us:",
+    founded_year: "Founded in 2025",
+    employees: "2 employees",
+    plans: "Plans for further development",
+    future_plans: "Our future plans:",
+    y2025: "2025: First store opened",
+    y2026: "2026: Online store launched",
+    y2027: "2027: New main store in Oslo",
+    ourVideo: "Our store video:",
+    we_have_future_plans: "We have plans for further development"
+
 }
 }
 let currentLang = localStorage.getItem("preferredLang") || "en"; // Hent språk fra localStorage eller bruk engelsk som standard

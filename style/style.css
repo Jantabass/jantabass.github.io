@@ -218,6 +218,7 @@ html, body {
   padding: 12px;
   font-size: 1em;
   font-weight: bold;
+  display: block;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -226,7 +227,17 @@ html, body {
   text-align: left;
   margin-bottom: 10px;
   box-shadow: 0 0 20px var(--weak-shadow) ;
+  white-space: nowrap;
+  overflow: hidden;     /* skjuler overflødig tekst */
+  text-overflow: ellipsis; 
+
 }
+
+.group-btn p {
+  display: inline;  /* fjerner linjeskift */
+  margin: 0;
+}
+
 
 .group-btn:hover {
   background-color: var(--accent-hover);
@@ -608,14 +619,32 @@ footer ul {
 
 
 .hero-bg { position: relative; }
-.slideshow,.slideshow_startside,.slideshow_omoss
- {
-  position: relative;
-  height: 90vh !important;  /* juster høyde */
-  overflow: hidden;
-  flex: 0 0 auto;
-  align-self: center;
 
+
+.slideshow img,.slideshow_startside img,.slideshow_omoss img
+ {
+  max-width: 100%;
+  overflow: hidden;
+ }
+
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.slideshow,
+.slideshow_startside,
+.slideshow_omoss {
+  display: flex;
+  position: relative;
+  width: 70%;
+  align-self: center;
+  align-content: center;
+  aspect-ratio: 16 / 9;   /* responsiv høyde */
 }
 
 .slide {
@@ -626,6 +655,9 @@ footer ul {
   object-fit: cover;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
+   display: flex;           /* legg til */
+  justify-content: center; /* sentrer horisontalt */
+  align-items: center;     
 }
 
 .slide.active {
@@ -637,14 +669,7 @@ footer ul {
   height: 70%;
 }
 
-.slideshow_omoss{
-  max-width: 60%;
-  height: auto;
-  border-radius: 16px;
-  margin: 0 auto;
-  object-fit: contain;
 
-}
 
 .white-background {
   background: linear-gradient(180deg, rgba(8, 35, 92, 0.295), rgba(17, 5, 150, 0.491));
@@ -818,6 +843,14 @@ tr:hover {
     padding: 1vw;
     font-size: 0.8em;
   }
+
+  .slideshow_omoss img{
+    height: auto;
+    border-radius: 16px;
+    width: 100%;
+  }
+
+
   .phone-groups {
     flex-direction: column;
     gap: 12px;
@@ -834,6 +867,8 @@ tr:hover {
     text-align: center;
 
   }
+
+
   #compareBox {
   justify-content: space-between;
   display: flex;
