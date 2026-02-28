@@ -1150,3 +1150,102 @@ body.dark-mode .contactForm textarea {
   }
 }
 
+
+@media (max-width: 800vh) {
+
+  * {
+      box-sizing: border-box; 
+  }
+    /* Lister under hverandre på mobil */
+    .listWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+        width: 100%;
+        padding: 15%;
+        height: auto;
+    }
+
+
+    .liste1,
+    .liste2 {
+        width: 100%;
+        max-width: 100%;
+        background-size: cover;
+        height: auto;
+        
+      }
+
+      li {
+        overflow-wrap: break-word;
+      }
+      
+      
+      
+      img{
+          max-width: 100%;
+          height: auto;
+          display: block;
+      }
+    /* Mindre slideshow på mobil */
+    .slideshowOmoss {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          margin-top: 2vh;
+
+    }
+
+    /* Tilpass video */
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+    /* Eksempel: gjør bakgrunnsbilde bredere */
+    .liste2 {
+        padding: 10vh;
+        max-width: 100%; /* container fyller skjermen */
+        background-size: cover; 
+        background-position: center;
+    }
+
+    /* Slideshow større */
+    .slideshowOmoss {
+        max-width: 700px; /* større enn mobil, mindre enn full PC */
+    }
+
+    /* Lister ved siden av hverandre */
+    .listWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .liste1,
+    .liste2 {
+        width: 48%;
+    }
+
+    /* Video litt større */
+    iframe {
+        width: 100%;
+        height: 350px;
+    }
+
+    .listWrapper {
+        gap: 15px;  /* litt mer luft på større skjermer */
+    }
+
+    .parent {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+
+
