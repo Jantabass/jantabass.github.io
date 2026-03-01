@@ -8,10 +8,14 @@
 <body>
 
   <div id="header"></div>
+  <main class="lessBigHero">
 
-  <h2 class="translate-contactUs"></h2>
+  <h1 class="translate-contactUs"></h2>
+  </main>
+  <div class="parent">
+  <div class = "defaultContent">
 
-  <table>
+  <table class="tableContact">
     <tr>
       <th class="translate-department"></th>
       <th class="translate-email"></th>
@@ -28,13 +32,13 @@
       <td>987 65 432</td>
     </tr>
   </table>
-  <h3 class="translate-sendMsg"></h3>
+  <h2 class="translate-sendMsg"></h2>
 
 <form class="contactForm">
   <input type="text" name="name" placeholder="Navn" required>
   <input type="email" name="email" placeholder="E-post" required>
   <textarea name="message" rows="5" placeholder="Skriv meldingen din her…" required></textarea>
-  <button class="translate-sendMsg" type="submit"></button>
+  <button class="translate-sendMsg btnPrimary" type="submit"></button>
 </form>
 
   <div class="successBox" id="successBox">
@@ -43,6 +47,8 @@
       <button class="translate-close" onclick="closeBox()"></button>
     </div>
   </div>
+</div>
+</div>
 
 
   <div id="footer"></div>
