@@ -760,7 +760,7 @@ align-self: center;
 
 .translate-bestEmployees {
   font-size: 35px;
-  
+
 }
 
 .slideshowOmoss img {
@@ -1205,48 +1205,60 @@ body.dark-mode .contactForm textarea {
       box-sizing: border-box; 
   }
     /* Lister under hverandre på mobil */
-    .listWrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 5vh;
-        width: 100%;
-        padding: 15%;
-        height: auto;
+  .listWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5vh;
+      width: 100%;
+      padding: 15%;
+      height: auto;
     }
 
 
-    .liste1,
-    .liste2 {
-        width: 100%;
-        min-height: 300px; /* juster høyden hvis du vil */
-        
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* sentrer teksten vertikalt */
-        align-items: center;     /* sentrer horisontalt */
-
-        padding: 30px;
-        text-align: center;
+  .liste1,
+  .liste2 {
+    width: 100%;
     }
 
-    .liste1 ul,
-    .liste2 ul,
-    .liste1 ol,
-    .liste2 ol {
-        margin: 0;
-        padding: 0;
-        width: 100%;
+  .liste1 ul,
+  .liste2 ul,
+  .liste1 ol,
+  .liste2 ol {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     }
 
-    .liste1 li,
-    .liste2 li {
-        list-style-position: inside;
-        overflow-wrap: break-word;
+  .liste1 li,
+  .liste2 li {
+    list-style-position: inside;
+    overflow-wrap: break-word;
     }
+
+  .liste1 ul, .liste2 ul,
+  .liste1 ol, .liste2 ol {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .liste1 li, .liste2 li {
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    font-size: 1.05rem;  
+    line-height: 1.5;
+    min-height: auto;
+  }
+
+  
+
 
 }
 

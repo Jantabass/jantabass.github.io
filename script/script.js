@@ -294,7 +294,7 @@ function toggleLanguage() {
 }
 
 
-// ...existing code...
+
 
 function toggleMenu() {
   const menu = document.getElementById("menu");
