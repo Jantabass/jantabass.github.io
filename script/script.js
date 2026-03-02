@@ -1,4 +1,4 @@
-// --- Header og footer ---
+
 
 document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@ document.getElementById("footer").innerHTML = `
   </footer>
 `;
 
-// Add to your HTML file (before closing body tag)
+
   document.addEventListener("DOMContentLoaded", function() {
       document.body.classList.add('fadeIn');
   });
@@ -270,8 +270,7 @@ const translations = {
 
 }
 }
-let currentLang = localStorage.getItem("preferredLang") || "en"; // Hent språk fra localStorage eller bruk engelsk som standard
-
+let currentLang = localStorage.getItem("preferredLang") || "en"; 
 
 
 function updateAllText() {
@@ -287,9 +286,9 @@ function updateAllText() {
 
 function toggleLanguage() {
   currentLang = (currentLang === "no") ? "en" : "no";
-  localStorage.setItem("preferredLang", currentLang); // Lagrer valget til neste besøk
-  updateAllText(); // Oppdaterer alt på siden umiddelbart
-  renderComparePanel(currentLang); // Oppdater compare-panelet med nytt språk
+  localStorage.setItem("preferredLang", currentLang); 
+  updateAllText(); 
+  renderComparePanel(currentLang); 
   highlightMaxValues();
 }
 
@@ -299,7 +298,7 @@ function toggleLanguage() {
 function toggleMenu() {
   const menu = document.getElementById("menu");
   menu.classList.toggle("show");
-  // Lukk menyen hvis du klikker utenfor
+  
   document.addEventListener("click", function handler(e) {
     if (!menu.contains(e.target) && !e.target.classList.contains("dropBtn")) {
       menu.classList.remove("show");
@@ -313,7 +312,7 @@ function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("preferredLang", currentLang);
   updateAllText();
-  renderComparePanel(currentLang); // Oppdater compare-panelet med nytt språk
+  renderComparePanel(currentLang); 
   highlightMaxValues();
   const menu = document.getElementById("menu");
   if (menu.classList.contains("show")) {
@@ -707,7 +706,7 @@ document.querySelectorAll(".groupBtn").forEach(btn => {
     const phonesDiv = btn.nextElementSibling;
     if (phonesDiv.classList.contains("show")) {
       playSound(soundGroupClose);}
-      else {  // toggle visning} 
+      else {   
         playSound(soundGroupOpen);}
     phonesDiv.classList.toggle("show")
   });
@@ -732,7 +731,7 @@ window.addEventListener("resize", () => {
   }
 });
  
-// Oppdater panel nederst
+
 
 
 function showPhoneSpecs(key, currentLang) {
@@ -769,7 +768,7 @@ function renderComparePanel(currentLang) {
   const panel = document.getElementById("compareBox");
   if (!panel) return;
   
-  let html = ""; // start på nytt hver gang
+  let html = ""; 
   
   if (compareSlots.length === 0) {
     compareSlots.push("emptyphone");
@@ -793,7 +792,7 @@ function renderComparePanel(currentLang) {
   });
   console.log(compareSlots.length)
   
-  // Fjern-knapper
+
 }
 
 
@@ -801,15 +800,15 @@ function renderComparePanel(currentLang) {
 
 
  
-// Funksjon for å fremheve høyeste verdier i compareBox
+
 function highlightMaxValues() {
   if (compareSlots.length < 2) return;
  
-  // Hent elementene i panelet
+
   const panel = document.getElementById("compareBox");
   const items = panel.querySelectorAll(".comparePhone");
  
-  // Samle verdier for hver kategori
+
   let maxValues = {
     screen : 0,
     storage: 0,
@@ -846,7 +845,7 @@ function highlightMaxValues() {
     const owners = compareSlots.filter(key => phones[key] && phones[key][prop] === maxValues[prop]);
     const isUniqueMax = owners.length === 1;
  
-  // Marker høyeste verdier
+
   items.forEach(item => {
     const name = item.querySelector("h3").innerText;
     let key = Object.keys(phones).find(k => phones[k].name === name);
@@ -854,7 +853,7 @@ function highlightMaxValues() {
     const elem = item.querySelector(`.highlight-${prop}`);
     if (!elem) return;
  
-    // Gå gjennom alle verdier vi vil markere
+
      if (isUniqueMax && phones[key][prop] === maxValues[prop] && maxValues[prop] !== 0) {
           elem.style.backgroundColor = "lightgreen";
         } else {
@@ -885,7 +884,7 @@ function addToCompare(key) {
  
  
  
-// Initial render: tomt panel
+
 renderComparePanel(currentLang);
 highlightMaxValues();
  
@@ -933,7 +932,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// ...existing code...
+
 
 document.querySelectorAll(".qaQuestion").forEach(button => {
   button.addEventListener("click", function () {
@@ -944,7 +943,7 @@ document.querySelectorAll(".qaQuestion").forEach(button => {
   });
 });
 
-// ...existing code...
+
 
 
 
@@ -953,7 +952,7 @@ updateAllText();
 const indicator = document.querySelector(".scrollIndicator");
 
 window.addEventListener("scroll", () => {
-  const fadeDistance = window.innerHeight; // 100vh
+  const fadeDistance = window.innerHeight;
   const scrollY = window.scrollY;
   const opacity = 1 - Math.min(scrollY / fadeDistance*2, 1);
   indicator.style.opacity = opacity;

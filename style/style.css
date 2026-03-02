@@ -156,11 +156,11 @@ html, body {
 
 .defaultContent li {
   margin-bottom: 1rem;
-  line-height: 1.6;         /* Gjør teksten lettere å lese */
+  line-height: 1.6;        
 }
 
 .defaultImage img {
-  max-width: 100%;   /* velg ønsket bredde */
+  max-width: 100%;   
   display: block;
   display: flex;
   justify-content: center;
@@ -215,8 +215,8 @@ html, body {
   width: 100%;
   height: 6rem;
   object-fit: cover;
-  object-position: center 20%; /* cropper høyere opp */
-  transform: scale(0.9);       /* mindre zoom */
+  object-position: center 20%; 
+  transform: scale(0.9);       
 }
  
 .selectPhone span {
@@ -239,7 +239,7 @@ html, body {
 
 
 .groupPhones {
-  display: none;      /* skjult som standard */
+  display: none;      
   margin-top: 5%;
   
   width: 100%;
@@ -247,7 +247,7 @@ html, body {
 }
 
 .groupPhones.show {
-  display: flex;      /* vis som flex */
+  display: flex;      
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
@@ -275,13 +275,13 @@ html, body {
   margin-bottom: 10px;
   box-shadow: 0 0 20px var(--weakShadow) ;
   white-space: nowrap;
-  overflow: hidden;     /* skjuler overflødig tekst */
+  overflow: hidden;     
   text-overflow: ellipsis; 
 
 }
 
 .groupBtn p {
-  display: inline;  /* fjerner linjeskift */
+  display: inline;  
   margin: 0;
 }
 
@@ -321,8 +321,8 @@ html, body {
 #compareBox {
   margin-top: 3%;
   display: flex;
-  flex-wrap: wrap;      /* neste rad hvis mer enn 3 */
-  gap: 3%;              /* mellomrom mellom telefonene */
+  flex-wrap: wrap;      
+  gap: 3%;              
   justify-content: center;
   
 }
@@ -498,12 +498,11 @@ html, body {
     cursor: pointer;
     
   }
-  /* Button */
+
   #modeBtn {
     background-color: var(--modeBtnCol);
     flex-shrink: 0; 
-  /* 2. Gi den en fast bredde basert på høyden så den forblir proporsjonal */
-  aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;
 }
 
 
@@ -516,7 +515,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%; /* Samme som før */
+  height: 100%; 
   aspect-ratio: 1 / 1;
   border-radius: 2rem;
   transition: transform 0.2s ease;
@@ -589,12 +588,9 @@ align-self: center;
   .features {
     margin: 3% auto;
     max-width: 100%;
-
-
-  padding: 0 20px;
-  justify-content: center;
-  /* text-align: center; */
-  flex-direction: column;
+    padding: 0 20px;
+    justify-content: center;
+    flex-direction: column;
 
 } 
 
@@ -765,9 +761,9 @@ align-self: center;
 }
 
 .slideshowOmoss img {
-  display: block;            /* ikke flex for å unngå arving */
+  display: block;           
   width: 100%;
-  max-width: 70%;         /* endre for ønsket størrelse */
+  max-width: 70%;         
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   position: relative;
@@ -783,12 +779,12 @@ align-self: center;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: scale(0.5); /* liten skalerings-effekt ved overgang (valgfritt) */
+  transform: scale(0.5); 
   transition: opacity 3000ms ease, transform 3000ms ease;
   z-index: 1;
 }
 
-/* Aktiv slide vises over de andre */
+
 .slideshowOmoss .slide.active {
   opacity: 1;
   transform: scale(1);
@@ -806,8 +802,8 @@ align-self: center;
   object-fit: cover;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
-   display: flex;           /* legg til */
-  justify-content: center; /* sentrer horisontalt */
+   display: flex;          
+  justify-content: center;
   align-items: center;     
 }
 
@@ -1052,7 +1048,7 @@ tr:hover {
   #compareBox {
   justify-content: space-between;
   display: flex;
-  flex-wrap: wrap; /* viktig for å tillate flere rader */
+  flex-wrap: wrap;
   gap: 3%;
   width: 100%;
   }
@@ -1096,12 +1092,12 @@ h3 {
   flex-direction: column;
   gap: 18px;
   
-  /* Ny: penere skygge */
+  
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   backdrop-filter: blur(6px);
 }
 
-/* Input & textarea */
+
 .contactForm input,
 .contactForm textarea {
   padding: 14px 16px;
@@ -1111,15 +1107,12 @@ h3 {
   outline: none;
 }
 
-/* .contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(0,0,0,0.5);
-} */
 
-/* Dark mode: mørk bakgrunn + lys tekst */
+
+
 body.dark-mode .contactForm input,
 body.dark-mode .contactForm textarea {
-  background: rgba(255,255,255,0.04); /* mørk, gjennomsiktig */
+  background: rgba(255,255,255,0.04); 
   border: 1px solid rgba(255,255,255,0.06);
   color: var(--text);
   box-shadow: none;
@@ -1127,13 +1120,13 @@ body.dark-mode .contactForm textarea {
 
 
 
-/* Tekstområde */
+
 .contactForm textarea {
   resize: vertical;
   min-height: 14%;
 }
 
-/* Knapp */
+
 .contactForm button {
   padding: 3%;
   font-size: 1em;
@@ -1142,7 +1135,7 @@ body.dark-mode .contactForm textarea {
   width: 90%;
   align-self: center;
   
-  /* Gradient knapp */
+
   
   background: var(--accentHover);
   border: none;
@@ -1158,13 +1151,6 @@ body.dark-mode .contactForm textarea {
   
 }
 
-/* Hover-effekt */
-/* .contact-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-} */
-
-/* Aktiv (klikk) */
 .contactForm button:active {
   transform: translateY(0);
   box-shadow: 0 4% 12% rgba(0,0,0,0.15);
@@ -1226,7 +1212,7 @@ body.dark-mode .contactForm textarea {
   * {
       box-sizing: border-box; 
   }
-    /* Lister under hverandre på mobil */
+    
   .listWrapper {
       display: flex;
       flex-direction: column;
