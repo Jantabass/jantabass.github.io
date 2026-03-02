@@ -961,6 +961,14 @@ h4 {
   max-height: 500px;
 }
 
+.tableContact {
+  margin: 0 0 20% 0;
+}
+.tableCareer {
+  margin: 0 0 0 0;
+}
+
+
 table {
     margin: 0 auto 40px;
     border-collapse: collapse;
@@ -992,6 +1000,19 @@ tr:hover {
 
   .defaultContent {
     width: 90%;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block; 
+    width: 100%;
+  }
+  th {
+    display: none; 
+  }
+
+  td {
+    position: relative;
+    border-bottom: 0.3em solid var(--weak-shadow);
   }
 
 
