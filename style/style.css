@@ -1017,6 +1017,15 @@ tr:hover {
     border-bottom: 0.3em solid var(--weak-shadow);
   }
 
+  .comparePhone button.removeBtn {
+    position: relative;
+    margin-bottom: 1rem;
+    right: 0;
+    align-self: center;
+
+
+}
+
 
 
   .btnPrimary {
@@ -1142,22 +1151,9 @@ body.dark-mode .contactForm textarea {
 }
 
 
-.contactForm button {
+.contactFormBtn {
   padding: 3%;
-  font-size: 1em;
-  font-weight: 600;
-  color: var(--text);
-  width: 90%;
-  align-self: center;
-  
 
-  
-  background: var(--accentHover);
-  border: none;
-  border-radius: 1%;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 1% 1% rgba(0,0,0,0.15);
 }
 .contactForm textarea, .contactForm input {
   width: 90%;
