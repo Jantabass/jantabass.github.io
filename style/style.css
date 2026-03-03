@@ -348,10 +348,10 @@ html, body {
 .comparePhone, .comparePhone.empty  {
   background: var(--card);
   border-radius: 0.75rem;
-  padding: 2em 6em 2em 6em;
-  box-shadow: 0 4em 3em rgba(0,0,0,0.15);
-  flex: 0 1 20rem;
-  max-width: 50rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.15);
+  flex: 0 1 18rem;
+  max-width: 22rem;
   
   
   display: flex;
@@ -707,9 +707,8 @@ align-self: center;
   border: none;
   border-radius: 1rem;
   cursor: pointer;
-  margin-bottom: 1rem;
   color: var(--text);
-  margin-top: 3em;
+  margin-top: 0.8rem;
 }
  
 .qaAnswer {

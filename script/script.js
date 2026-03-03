@@ -141,7 +141,7 @@ const translations = {
     permanent: "Fast",
     temporary: "Deltid",
 
-    bestEmployees: "Våre beste arbeidere, som har vært med oss siden starten",
+    bestEmployees: "Våre beste arbeidere, som har vært med oss siden begynnelse",
 
     factsAboutUs: "Noen fakta om oss:",
     foundedYear: "Grunnlagt i 2025",
@@ -157,7 +157,7 @@ const translations = {
     priority1: "Gi den råeste informasjonen mulig",
     priority2: "Sørge for at det er lett å finne frem og sammenlikne",
     priority3: "Oppdatere siden jevnlig med de nyeste modellene og spesifikasjonene",
-    bestEmployees: "Våre beste ansatte, som har vært med oss siden starten"
+    bestEmployees: "Våre beste ansatte, som har vært med oss siden begynnelsen"
 
 
   },
@@ -283,7 +283,7 @@ const translations = {
     priority1: "Give the rawest information possible",
     priority2: "Make sure it is easy to find and compare models",
     priority3: "Update our site regurarly with the newest models and specifications",
-    bestEmployees: "Our best employees, who have been with us since the start"
+    bestEmployees: "Our best employees, who have been with us since the beginning"
 
 
 }
