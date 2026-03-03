@@ -4,7 +4,7 @@ document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <header>
-    <a href ="startside.html"><h1>ClearPhone</h1></a>
+    <a href ="index.html"><h1>ClearPhone</h1></a>
     <div class="headerButtons">
     <button type="button" id="modeBtnContainer" aria-label="Bytt modus">
     <img src="../images/modeKnappenCropped2.png" id="modeBtn" alt="Bytt modus">
