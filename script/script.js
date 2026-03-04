@@ -4,7 +4,7 @@ document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <header>
-    <a href ="${getBasePath()}index.html"><h1>ClearPhone</h1></a>
+    <a href ="${getBasePath()}/index.html"><h1>ClearPhone</h1></a>
     <div class="headerButtons">
     <button type="button" id="modeBtnContainer" aria-label="Bytt modus">
     <img src="../images/modeKnappenCropped2.png" id="modeBtn" alt="Bytt modus">
@@ -23,10 +23,10 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 ClearPhone</p>
     <ul>
-      <li><a class="translate-aboutUs" href="${getBasePath()}omOss.html">Om oss</a></li>
-      <li><a class="translate-contactUs" href="${getBasePath()}kontaktOss.html">Kontakt oss</a></li>
-      <li><a class="translate-career" href="${getBasePath()}karriere.html">Jobb hos oss</a></li>
-      <li><a class="translate-faq" href="${getBasePath()}html/q&a.html"></a></li>
+      <li><a class="translate-aboutUs" href="${getBasePath()}/omOss.html">Om oss</a></li>
+      <li><a class="translate-contactUs" href="${getBasePath()}/kontaktOss.html">Kontakt oss</a></li>
+      <li><a class="translate-career" href="${getBasePath()}/karriere.html">Jobb hos oss</a></li>
+      <li><a class="translate-faq" href="${getBasePath()}/html/q&a.html"></a></li>
     </ul>
   </footer>
 `;
@@ -35,7 +35,7 @@ document.getElementById("footer").innerHTML = `
 function getBasePath() {
   const path = window.location.pathname;
   if (path.includes('/html/')) {
-    return '../';
+    return '..';
   }
   return '';
 }
