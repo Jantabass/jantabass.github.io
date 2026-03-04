@@ -34,10 +34,10 @@ document.getElementById("footer").innerHTML = `
 
 function getBasePath() {
   const path = window.location.pathname;
-  if (path.includes('/html/')) {
+  if (path.includes('/html')) {
     return '..';
   }
-  return '';
+  return '.';
 }
 
 
